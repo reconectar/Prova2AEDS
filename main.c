@@ -20,11 +20,9 @@ void q1Escrita(float totalR, float amp){
 
 }
 
-float q2a(){
-    int n,i;
+float q2a(int n){
+    int i;
     float a=1, b=1, r=0;
-    printf("\nInsira o numero de termos: ");
-    scanf("%d",&n);
     for(i=0;i<n;i++){
         r+=(a/b);
         b++;
@@ -34,10 +32,9 @@ float q2a(){
     return r;
 }
 
-void q2b(float *r){
-    int n,i;
+void q2b(int n, float *r){
+    int i;
     float a=1, b=1;
-    printf("\nInsira o numero de termos: ");
     scanf("%d",&n);
     for(i=0;i<n;i++){
         *r+=(a/b);
@@ -46,7 +43,7 @@ void q2b(float *r){
     }
 }
 
-float q2c(int n){
+void q2c(int n){
     int i;
     float a=1, b=1;
     for(i=0;i<n;i++){
@@ -54,13 +51,12 @@ float q2c(int n){
         b++;
         a=a+2;
     }
-
-    return H;
 }
 
 int main()
 {
     float nota,totalR=0,c=0,amp,maior,menor;
+    int n;
     printf("\nINICIO Q1\n");
     printf("\nInsira a nota: ");
     scanf("%f", &nota);
@@ -102,8 +98,9 @@ int main()
     printf("\nINICIO Q2\n");
     printf("\nINICIO Q2 letra a\n");
     float r=0;
-    int n;
-    r=q2a();
+    printf("\nInsira o numero de termos: ");
+    scanf("%d",&n);
+    r=q2a(n);
     printf("Resultado = %.2f",r);
     printf("\nFim Q2 letra a\n");
     system("pause");
@@ -111,7 +108,7 @@ int main()
 
     printf("\nINICIO Q2 letra b\n");
     r=0;
-    q2b(&r);
+    q2b(n,&r);
     printf("Resultado = %.2f",r);
     printf("\nFim Q2 letra b\n");
     system("pause");
